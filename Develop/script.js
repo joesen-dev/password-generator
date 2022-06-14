@@ -1,31 +1,88 @@
 // Assignment code here
 
 // CHARACTER LIST ARRAYS
-const characters = [...Array(95).keys()].map(i => String.fromCharCode(i+32))
+// const characters = [...Array(95).keys()].map(i => String.fromCharCode(i+32))
 
+const UPPERCASE_CHAR_CODES = arrayFromLowToHigh (65, 90)
+const LOWERCASE_CHAR_CODES = arrayFromLowToHigh (97, 122)
+const NUMBER_CHAR_CODES = arrayFromLowToHigh (48, 57)
+const SPECIAL_CHAR_CODES = arrayFromLowToHigh (33, 47).concat(
+    arrayFromLowToHigh(58, 64)
+).concat(
+    arrayFromLowToHigh(91, 96)
+).concat(
+    arrayFromLowToHigh(123, 126)
+)
 // USER PROMPT ARRAY
 var userAlertArray = ["lowercase", "uppercase", "numeric", "special characters"]
 
-// CHARATER TYPE
+// // Password character criteria
+// var sym = ["!", "@", "#", "$", "%", "^", "&", "*", "=", "-", "_"];
+// var num = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+// var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+// var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+// CHARATER TYPE ARRAY
 var charTypeArray = [
-    [
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-        'm', 'n', 'o', 'p', 'q', 'r',  's', 't', 'u', 'v', 'w', 'x',
-        'y', 'z' 
-    ], 
-    [
-        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-        'M', 'N', 'O', 'P', 'Q', 'R',  'S', 'T', 'U', 'V', 'W', 'X',
-        'Y', 'Z' 
-    ], 
-    [
-        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
-    ],
-    [characters]
+    {
+        name: "lowerCase",
+        value: arrayFromLowToHigh (65, 90)
+    },
+    {
+        name: "upperCase",
+        value: arrayFromLowToHigh (97, 122)
+    },
+    {
+        name: "numeric",
+        value: arrayFromLowToHigh (48, 57)
+    },
+    {
+        name: "specialChar",
+        value: arrayFromLowToHigh (33, 47).concat(
+            arrayFromLowToHigh(58, 64)
+        ).concat(
+            arrayFromLowToHigh(91, 96)
+        ).concat(
+            arrayFromLowToHigh(123, 126)
+        )
+    }
+    // [
+    //     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+    //     'm', 'n', 'o', 'p', 'q', 'r',  's', 't', 'u', 'v', 'w', 'x',
+    //     'y', 'z' 
+    // ], 
+    // [
+    //     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+    //     'M', 'N', 'O', 'P', 'Q', 'R',  'S', 'T', 'U', 'V', 'W', 'X',
+    //     'Y', 'Z' 
+    // ], 
+    // [
+    //     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+    // ],
+    // [characters]
 ];
 
-// PASSWORD CHOICES
-var passowrdCriteria = [] 
+// PASSWORD CHOICES STORAGE
+var passowrdCriteriaArray = []
+var characterAmount = passowrdCriteriaArray
+
+
+// password criteria data
+var passCrData1 = charTypeArray[0]
+var passCrData2 = charTypeArray[1]
+var passCrData3 = charTypeArray[2]
+var passCrData4 = charTypeArray[3]
+
+var includeLowerCase = passCrData1
+var includeUpperCase = passCrData2
+var includeNumbers = passCrData3
+var includeSymbols = passCrData4
+
+var characterAmountArray = []
+// password length data
+var passLengthData = characterAmountArray[0]
+var characterAmount = passLengthData
+
 
 // Create a charater type object then convert it into an Array: START
 // Object------
@@ -41,15 +98,40 @@ console.log(charTypeObj);
 var charTypePrompt = Object.values(charTypeObj)
 // END
 
+
 // DEFINE generatePassword
 function generatePassword() {
   // ask for character length
   passwordLength();
-  debugger;
+//   debugger;
    
   // ask for character length  
   characterType();
+
+  function createPassword(passLengthData, upper, num, sym) {
+    debugger;
+    var charCodes = LOWERCASE_CHAR_CODES
+    if (upper) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES)
+    if (sym) charCodes = charCodes.concat(SPECIAL_CHAR_CODES)
+    if (num) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
+
+    const passwordCharacters = []
+    for (i = 0; i < passLengthData; i++) {
+        const characterCode = charCodes[Math.floor(Math.random() * 
+            charCodes.length)]
+            passwordCharacters.push(String.fromCharCode(characterCode))
+    }
+    // return passwordCharacters.join('')
+    console.log(password)
+    return (password);
+    console.log(password)
+   }
+  createPassword()
+  debugger;
+  console.log(password)
+
 }
+
 
 // PASSOWRD LENGTH PROMPT
 var passwordLength = function() {
@@ -64,10 +146,11 @@ var passwordLength = function() {
     }
     console.log("Your password will have " + charLength);
     // here we push() the user's entry into our passwordCriteria Array for recall later
-    passowrdCriteria.push(charLength);
-    console.log(passowrdCriteria);
+    characterAmountArray.push(charLength);
+    console.log(characterAmountArray);
     return charLength;
 }
+
 
 // CHARACTER TYPE PROMPT
 var characterType = function() {
@@ -77,23 +160,19 @@ var characterType = function() {
         
         if (confirmAction) {
             console.log(charTypeArray[i])
-            passowrdCriteria.push(charTypeArray[i]);
-            console.log(passowrdCriteria);
+            passowrdCriteriaArray.push(charTypeArray[i]);
+            console.log(passowrdCriteriaArray );
+            // VALIDATE USER INPUT
             alert("Your password will include " + userAlertArray[i] + " characters") 
         } else {
             return[];
         }  
         } confirmAction()
+        
     }
+    debugger;
 }
 
-// VALIDATE USER INPUT
-// var userInput = function() {
-//     for (var i = 0; i < userAlertArray.length; i++) {
-//         alert("Your password will include " + userAlertArray[i] + " characters")
-        
-//     }
-// }
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -101,13 +180,24 @@ console.log(generateBtn);
 
 
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword() 
+function writePassword() {  
+  var password = generatePassword()
+
   var passwordText = document.querySelector("#password");
+    
 
   passwordText.value = password;
-
 }
 
+
+
+// LOW TO HIGH ARRAY
+function arrayFromLowToHigh(low, high) {
+    const array = []
+    for(var i = low; i <= high; i++) {
+        array.push(i)
+    }
+    return array
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
