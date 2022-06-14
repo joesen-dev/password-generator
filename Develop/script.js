@@ -3,15 +3,6 @@
 // CHARACTER LIST ARRAYS
 const characters = [...Array(95).keys()].map(i => String.fromCharCode(i+32))
 
-
-// charSet = " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-
-// PASSWORD LENGTH
-// var passwordInfo = {
-//     charLength: passwordLength(),
-
-// }
-
 // CHARATER TYPE
 var charTypeArray = [
     [
@@ -56,10 +47,6 @@ function generatePassword() {
   // ask for character length  
   characterType();
 }
-//   (prompt
-//     ("Enter a character type: lowercase, uppercase, numeric, and/or special characters")
-//   );
-// }
 
 // PASSOWRD LENGTH PROMPT
 var passwordLength = function() {
@@ -80,16 +67,6 @@ var passwordLength = function() {
 }
 
 // CHARACTER TYPE PROMPT
-
-// for (var i = 0; i <characterType.length; i++) {
-
-// var characterType = function () {
-//     charType = "";
-//     while (charType === "" || charType === null) {
-//         charType = 
-//     }
-// }
-
 var characterType = function() {
   for (var i = 0; i < charTypePrompt.length; i++) {
         function confirmAction() {
@@ -106,78 +83,9 @@ var characterType = function() {
     }
 }
 
-    //   if (confirmAction) {
-    //     var confirmAction = confirm(charTypePrompt[i++])
-    //   }
-
-//   for (var i = 0; i < charTypePrompt.length; i++) {
-//     function confirmAction1() {
-//       var confirmAction1 = confirm(charTypeArray[0]);
-          
-//       if (confirmAction1) {
-//         console.log("Your password will include lowercase characters");
-//       } else {
-//         charTypeList();
-//       }
-//     }
-//     confirmAction1()
-
-//     function confirmAction2() {
-//       var confirmAction2 = confirm(charTypeArray[1]);
-          
-//       if (confirmAction2) {
-//         console.log("Your password will include uppercase characters");
-//       } else {
-//         charTypeList();
-//       }
-//     }
-//     confirmAction2()
-
-//     function confirmAction3() {
-//       var confirmAction3 = confirm(charTypeArray[1]);
-          
-//       if (confirmAction3) {
-//         console.log("Your password will include numeric characters");
-//       } else {
-//         charTypeList();
-//       }
-//     }
-//     confirmAction3()
-
-//     function confirmAction4() {
-//       var confirmAction4 = confirm(charTypeArray[1]);
-          
-//       if (confirmAction4) {
-//         console.log("Your password will include special characters");
-//       } else {
-//         charTypeList();
-//       }
-//     }
-//     confirmAction4()
-//     break;
-//   }
-// }
-// While loop through CHARACTER TYPE PROMPT
-// var charTypeList = function() {
-//   var charType = characterType();
-//   while (charType === false || charType === null) {
-//     charType = prompt("Please choose you charater types.")
-//   }
-//   return charType;
-// }
-
-
-
-// function characterType() {
-//   var characterType = 
-// }
-
-
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 console.log(generateBtn);
-
 
 
 // Write password to the #password input
