@@ -3,6 +3,9 @@
 // CHARACTER LIST ARRAYS
 const characters = [...Array(95).keys()].map(i => String.fromCharCode(i+32))
 
+// USER PROMPT ARRAY
+var userAlertArray = ["lowercase", "uppercase", "numeric", "special characters"]
+
 // CHARATER TYPE
 var charTypeArray = [
     [
@@ -75,13 +78,22 @@ var characterType = function() {
         if (confirmAction) {
             console.log(charTypeArray[i])
             passowrdCriteria.push(charTypeArray[i]);
-            console.log(passowrdCriteria);    
+            console.log(passowrdCriteria);
+            alert("Your password will include " + userAlertArray[i] + " characters") 
         } else {
             return[];
         }  
         } confirmAction()
     }
 }
+
+// VALIDATE USER INPUT
+// var userInput = function() {
+//     for (var i = 0; i < userAlertArray.length; i++) {
+//         alert("Your password will include " + userAlertArray[i] + " characters")
+        
+//     }
+// }
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
