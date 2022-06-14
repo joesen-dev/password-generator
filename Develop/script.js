@@ -41,7 +41,6 @@ console.log(charTypeObj);
 
 // Array------
 var charTypePrompt = Object.values(charTypeObj)
-console.log(charTypePrompt);
 // END
 
 // DEFINE generatePassword
@@ -96,10 +95,7 @@ var characterType = function() {
             console.log(charTypeArray[i])
             passowrdCriteria.push(charTypeArray[i]);
             console.log(passowrdCriteria);    
-        } if (i < charTypePrompt.length) {
-            var confirmAction = ((i + 1))
-            // console.log(upperCase)
-        } 
+        }       
         } confirmAction()
     }
 }
