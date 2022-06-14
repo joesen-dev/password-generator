@@ -3,6 +3,9 @@
 // CHARACTER LIST ARRAYS
 const characters = [...Array(95).keys()].map(i => String.fromCharCode(i+32))
 
+
+// charSet = " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+
 // PASSWORD LENGTH
 // var passwordInfo = {
 //     charLength: passwordLength(),
@@ -23,7 +26,8 @@ var charTypeArray = [
     ], 
     [
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
-    ]
+    ],
+    [characters]
 ];
 
 // PASSWORD CHOICES
@@ -95,7 +99,9 @@ var characterType = function() {
             console.log(charTypeArray[i])
             passowrdCriteria.push(charTypeArray[i]);
             console.log(passowrdCriteria);    
-        }       
+        } else {
+            return[];
+        }  
         } confirmAction()
     }
 }
