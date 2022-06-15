@@ -16,12 +16,6 @@ const SPECIAL_CHAR_CODES = arrayFromLowToHigh (33, 47).concat(
 // USER PROMPT ARRAY
 var userAlertArray = ["lowercase", "uppercase", "numeric", "special characters"]
 
-// // Password character criteria
-// var sym = ["!", "@", "#", "$", "%", "^", "&", "*", "=", "-", "_"];
-// var num = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-// var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-// var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
 // CHARATER TYPE ARRAY
 var charTypeArray = [
     {
@@ -46,43 +40,61 @@ var charTypeArray = [
             arrayFromLowToHigh(123, 126)
         )
     }
-    // [
-    //     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-    //     'm', 'n', 'o', 'p', 'q', 'r',  's', 't', 'u', 'v', 'w', 'x',
-    //     'y', 'z' 
-    // ], 
-    // [
-    //     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-    //     'M', 'N', 'O', 'P', 'Q', 'R',  'S', 'T', 'U', 'V', 'W', 'X',
-    //     'Y', 'Z' 
-    // ], 
-    // [
-    //     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
-    // ],
-    // [characters]
+   
 ];
-
 // PASSWORD CHOICES STORAGE
 var passowrdCriteriaArray = []
+    for (i = 0; i < passowrdCriteriaArray.length; i++) {
+        function logChoices() {
+            var logChoices = comfirm(passowrdCriteriaArray[i]);
+
+            if (passowrdCriteriaArray[i] = {name: "lowerCase", value: Array(26)}) {                
+                var passCrData1 = passowrdCriteriaArray[0];
+                passCrData1.push(passowrdCriteriaArray[0]); 
+
+            } else if (passowrdCriteriaArray[i++] = {name: "upperCase", value: Array(26)}) {
+                var passCrData2 = passowrdCriteriaArray[1];
+                passCrData2.push(passowrdCriteriaArray[1]);
+
+            } else if (passowrdCriteriaArray[i++] = {name: "numeric", value: Array(10)}) {
+                var passCrData3 = passowrdCriteriaArray[2];
+                passCrData3.push(passowrdCriteriaArray[2]);
+
+            } else if (passowrdCriteriaArray[i++] = {name: "specialChar", value: Array(32)}) {
+                var passCrData4 = passowrdCriteriaArray[3];
+                passCrData4.push(passowrdCriteriaArray[3]);
+
+            } else {
+                (passowrdCriteriaArray[i] = passowrdCriteriaArray[i])
+                var passCrData1 = passowrdCriteriaArray[0];
+                var passCrData2 = passowrdCriteriaArray[1];
+                var passCrData3 = passowrdCriteriaArray[2];
+                var passCrData4 = passowrdCriteriaArray[3];                
+            } 
+            console.log(logChoices)
+            return logChoices
+        }
+
+    }
+
 var characterAmount = passowrdCriteriaArray
+
+var characterAmountArray = []
+// password length data
+var passLengthData = characterAmountArray[0]
 
 
 // password criteria data
-var passCrData1 = charTypeArray[0]
-var passCrData2 = charTypeArray[1]
-var passCrData3 = charTypeArray[2]
-var passCrData4 = charTypeArray[3]
+var passCrData1 = []
+var passCrData2 = []
+var passCrData3 = []
+var passCrData4 = []
 
 var includeLowerCase = passCrData1
 var includeUpperCase = passCrData2
 var includeNumbers = passCrData3
 var includeSymbols = passCrData4
 
-var characterAmountArray = []
-// password length data
-var passLengthData = characterAmountArray[0]
-
-// createPassword(passLengthData, passCrData2, passCrData3, passCrData4)
 
 // Create a charater type object then convert it into an Array: START
 // Object------
@@ -100,7 +112,7 @@ var charTypePrompt = Object.values(charTypeObj)
 
 // PASSOWRD LENGTH PROMPT
 var passwordLength = function() {
-    debugger;
+    // debugger;
     charLength = "";
     while (charLength === "" || charLength === null) {
         charLength = prompt("How many characters will your password be? Enter a number between 8 and 128.");
@@ -109,8 +121,10 @@ var passwordLength = function() {
     if (charLength < 8 || charLength > 128 || isNaN(charLength)) {
         alert("Please choose a number between 8 and 128");
         return passwordLength();
+    } else { 
+        alert("Your password will have " + charLength + " characters");
     }
-    console.log("Your password will have " + charLength);
+    console.log("Your password will have " + charLength + " characters");
     // here we push() the user's entry into our passwordCriteria Array for recall later
     characterAmountArray.push(charLength);
     console.log(characterAmountArray);
@@ -145,39 +159,82 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {  
   var password = generatePassword()
-  debugger;
+//   debugger;
   function generatePassword() {
     // ask for character length
     passwordLength();
-    debugger;
+    // debugger;
      
     // ask for character length  
     characterType();
   
-    createPassword(parseInt(characterAmountArray[0]), passCrData2, passCrData3, passCrData4)
+    createPassword(parseInt(characterAmountArray[0]), passCrData1, passCrData2, passCrData3, passCrData4) 
   
-    function createPassword(passLengthData, passCrData2, passCrData3, passCrData4) {   
-        debugger;
-  
-      var charCodes = LOWERCASE_CHAR_CODES
-      if (passCrData2) charCodes = charCodes.concat
-      (UPPERCASE_CHAR_CODES)
-      if (passCrData4) charCodes = charCodes.concat(SPECIAL_CHAR_CODES)
-      if (passCrData3) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
-      
-      const password = []
-      for (i = 0; i < passLengthData; i++) {
-          const characterCode = charCodes[Math.floor(Math.random() * 
-              charCodes.length)]
-              password.push(String.fromCharCode(characterCode))
+    function createPassword(passLengthData, passCrData1, passCrData2, passCrData3, passCrData4) {   
+        debugger;       
+        var charCodes = passowrdCriteriaArray; // ((passowrdCriteriaArray[i]))
+        if (passCrData1) charCodes = charCodes.concat(LOWERCASE_CHAR_CODES) 
+        if (passCrData2) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES) 
+        if (passCrData3) charCodes = charCodes.concat(SPECIAL_CHAR_CODES)
+        if (passCrData4) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
+        
+        const password = []
+        for (i = 0; i < passLengthData; i++) {
+            const characterCode = charCodes[Math.floor(Math.random() * 
+                charCodes.length)]
+                password.push(String.fromCharCode(characterCode))
+        }
+        console.log(password)
+        return password.join('')      
       }
-      console.log(password)
-      return password.join('')      
-    }
-    var passwordText = document.querySelector("#password");
+      var passwordText = document.querySelector("#password");
+      
+  
+      passwordText.value = password;
+            
+        
+      
+    // function createPassword(passLengthData, passCrData2, passCrData3, passCrData4) {   
+    //     debugger;
+
+    //     var charCodes = LOWERCASE_CHAR_CODES // ((passowrdCriteriaArray[i]))      
+    //     if (passCrData2) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES) 
+    //     if (passCrData4) charCodes = charCodes.concat(SPECIAL_CHAR_CODES)
+    //     if (passCrData3) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
+        
+    //     const password = []
+    //     for (i = 0; i < passLengthData; i++) {
+    //         const characterCode = charCodes[Math.floor(Math.random() * 
+    //             charCodes.length)]
+    //             password.push(String.fromCharCode(characterCode))
+    //     }
+    //     console.log(password)
+    //     return password.join('')      
+    //   }
+    //   var passwordText = document.querySelector("#password");
+      
+  
+    //   passwordText.value = password;
+  
+    //   var charCodes = LOWERCASE_CHAR_CODES
+    //   if (passCrData2) charCodes = charCodes.concat
+    //   (UPPERCASE_CHAR_CODES)
+    //   if (passCrData4) charCodes = charCodes.concat(SPECIAL_CHAR_CODES)
+    //   if (passCrData3) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
+      
+    //   const password = []
+    //   for (i = 0; i < passLengthData; i++) {
+    //       const characterCode = charCodes[Math.floor(Math.random() * 
+    //           charCodes.length)]
+    //           password.push(String.fromCharCode(characterCode))
+    //   }
+    //   console.log(password)
+    //   return password.join('')      
+    // }
+    // var passwordText = document.querySelector("#password");
     
 
-    passwordText.value = password;
+    // passwordText.value = password;
   }
 
   
