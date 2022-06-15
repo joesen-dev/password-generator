@@ -81,8 +81,8 @@ var includeSymbols = passCrData4
 var characterAmountArray = []
 // password length data
 var passLengthData = characterAmountArray[0]
-var characterAmount = passLengthData
 
+// createPassword(passLengthData, passCrData2, passCrData3, passCrData4)
 
 // Create a charater type object then convert it into an Array: START
 // Object------
@@ -98,43 +98,9 @@ console.log(charTypeObj);
 var charTypePrompt = Object.values(charTypeObj)
 // END
 
-
-// DEFINE generatePassword
-function generatePassword() {
-  // ask for character length
-  passwordLength();
-//   debugger;
-   
-  // ask for character length  
-  characterType();
-
-  function createPassword(passLengthData, upper, num, sym) {
-    debugger;
-    var charCodes = LOWERCASE_CHAR_CODES
-    if (upper) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES)
-    if (sym) charCodes = charCodes.concat(SPECIAL_CHAR_CODES)
-    if (num) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
-
-    const passwordCharacters = []
-    for (i = 0; i < passLengthData; i++) {
-        const characterCode = charCodes[Math.floor(Math.random() * 
-            charCodes.length)]
-            passwordCharacters.push(String.fromCharCode(characterCode))
-    }
-    // return passwordCharacters.join('')
-    console.log(password)
-    return (password);
-    console.log(password)
-   }
-  createPassword()
-  debugger;
-  console.log(password)
-
-}
-
-
 // PASSOWRD LENGTH PROMPT
 var passwordLength = function() {
+    debugger;
     charLength = "";
     while (charLength === "" || charLength === null) {
         charLength = prompt("How many characters will your password be? Enter a number between 8 and 128.");
@@ -150,7 +116,6 @@ var passwordLength = function() {
     console.log(characterAmountArray);
     return charLength;
 }
-
 
 // CHARACTER TYPE PROMPT
 var characterType = function() {
@@ -170,18 +135,52 @@ var characterType = function() {
         } confirmAction()
         
     }
-    debugger;
+    // debugger;
 }
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-console.log(generateBtn);
 
 
 // Write password to the #password input
 function writePassword() {  
   var password = generatePassword()
+  debugger;
+  function generatePassword() {
+    // ask for character length
+    passwordLength();
+    debugger;
+     
+    // ask for character length  
+    characterType();
+  
+    createPassword(parseInt(characterAmountArray[0]), passCrData2, passCrData3, passCrData4)
+  
+    function createPassword(passLengthData, passCrData2, passCrData3, passCrData4) {   
+        debugger;
+  
+      var charCodes = LOWERCASE_CHAR_CODES
+      if (passCrData2) charCodes = charCodes.concat
+      (UPPERCASE_CHAR_CODES)
+      if (passCrData4) charCodes = charCodes.concat(SPECIAL_CHAR_CODES)
+      if (passCrData3) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
+      
+      const password = []
+      for (i = 0; i < passLengthData; i++) {
+          const characterCode = charCodes[Math.floor(Math.random() * 
+              charCodes.length)]
+              password.push(String.fromCharCode(characterCode))
+      }
+      console.log(password)
+      return password.join('')      
+    }
+    var passwordText = document.querySelector("#password");
+    
+
+    passwordText.value = password;
+  }
+
+  
 
   var passwordText = document.querySelector("#password");
     
