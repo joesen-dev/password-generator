@@ -21,6 +21,10 @@ function arrayFromLowToHigh(low, high) {
     }
     return array
 }
+
+// PASSWORD array
+var passwordArray = [] 
+
 // Add event listener to generate button
 // USER PROMPT ARRAY
 var userAlertArray = ["lowercase", "uppercase", "numeric", "special characters"]
@@ -97,8 +101,8 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {  
-  var password = generatePassword()
-//   debugger;
+  generatePassword()
+// //   debugger;
   function generatePassword() {
     // ask for character length
     passwordLength();
@@ -131,7 +135,7 @@ function writePassword() {
         console.log(passCrData4)
     
     var passowrdCriteriaArray = [passCrData1, passCrData2, passCrData3, passCrData4]
-    var passwordArray = [] 
+    // var passwordArray = [] 
     createPassword(parseInt(characterAmountArray[0]), passCrData1, passCrData2, passCrData3, passCrData4) 
   
     function createPassword(passLengthData, passCrData1, passCrData2, passCrData3, passCrData4) {   
@@ -152,9 +156,9 @@ function writePassword() {
                 // debugger;
         }
         console.log(password)
-        password.join("")
-        console.log(password)
-        passwordArray.push(password)
+        var securePassword = password.join('')
+        console.log(securePassword)
+        passwordArray.push(securePassword)
         console.log(passwordArray)
         debugger;
         // return password.join('')      
@@ -162,13 +166,15 @@ function writePassword() {
       var passwordText = document.querySelector("#password");
       
   
-      passwordText.value = passwordArray;           
+      passwordText.value = passwordArray
+    //   debugger;         
     } 
 
 //   var passwordText = document.querySelector("#password");
 
 
-//   passwordText.value = password;
+//   passwordText.value = passwordArray;
+//   debugger;
 }
 
 // // LOW TO HIGH ARRAY
