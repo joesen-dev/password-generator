@@ -134,14 +134,16 @@ function writePassword() {
         } else passCrData4 = false
         console.log(passCrData4)
     
-    var passowrdCriteriaArray = [passCrData1, passCrData2, passCrData3, passCrData4]
+    var passwordCriteriaArray = [passCrData1, passCrData2, passCrData3, passCrData4]
     // var passwordArray = [] 
     createPassword(parseInt(characterAmountArray[0]), passCrData1, passCrData2, passCrData3, passCrData4) 
   
-    function createPassword(passLengthData, passCrData1, passCrData2, passCrData3, passCrData4) {   
+    function createPassword(passLengthData, passCrData1, passCrData2, passCrData3, passCrData4) {
+
+        event.preventDefault();
         // debugger;   
     
-        var charCodes = passowrdCriteriaArray; // ((passowrdCriteriaArray[i]))
+        var charCodes = passwordCriteriaArray; // ((passowrdCriteriaArray[i]))
         if (passCrData1) charCodes = charCodes.concat(LOWERCASE_CHAR_CODES) 
         if (passCrData2) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES) 
         if (passCrData4) charCodes = charCodes.concat(SPECIAL_CHAR_CODES)
@@ -168,22 +170,11 @@ function writePassword() {
   
       passwordText.value = passwordArray
     //   debugger;         
-    } 
-
-//   var passwordText = document.querySelector("#password");
+    }
 
 
-//   passwordText.value = passwordArray;
-//   debugger;
 }
 
-// // LOW TO HIGH ARRAY
-// function arrayFromLowToHigh(low, high) {
-//     const array = []
-//     for(var i = low; i <= high; i++) {
-//         array.push(i)
-//     }
-//     return array
-// }
-// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
