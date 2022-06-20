@@ -1,7 +1,6 @@
 // Assignment code here
 
 // CHARACTER LIST ARRAYS
-// const characters = [...Array(95).keys()].map(i => String.fromCharCode(i+32))
 
 const UPPERCASE_CHAR_CODES = arrayFromLowToHigh (65, 90)
 const LOWERCASE_CHAR_CODES = arrayFromLowToHigh (97, 122)
@@ -25,7 +24,6 @@ function arrayFromLowToHigh(low, high) {
 // PASSWORD array
 var passwordArray = [] 
 
-// Add event listener to generate button
 // USER PROMPT ARRAY
 var userAlertArray = ["lowercase", "uppercase", "numeric", "special characters"]
 
@@ -74,7 +72,7 @@ console.log(charTypeObj);
 var charTypePrompt = Object.values(charTypeObj)
 // END
 
-// PASSOWRD LENGTH PROMPT
+// PASSWORD LENGTH PROMPT
 var passwordLength = function() {
     // debugger;
     charLength = "";
@@ -102,11 +100,11 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {  
   generatePassword()
-// //   debugger;
+
   function generatePassword() {
-    // ask for character length
+    
     passwordLength();
-    // debugger;
+   
 
     // set variabls pasCrData1 - 4 to be the return of the 'confirm' for diiffernt charactr sets
     passCrData1 = confirm("Would you like to include lowercase characters?")
@@ -135,41 +133,41 @@ function writePassword() {
         console.log(passCrData4)
     
     var passwordCriteriaArray = [passCrData1, passCrData2, passCrData3, passCrData4]
-    // var passwordArray = [] 
+    
     createPassword(parseInt(characterAmountArray[0]), passCrData1, passCrData2, passCrData3, passCrData4) 
   
     function createPassword(passLengthData, passCrData1, passCrData2, passCrData3, passCrData4) {
 
         event.preventDefault();
-        // debugger;   
+       
     
-        var charCodes = passwordCriteriaArray; // ((passowrdCriteriaArray[i]))
+        var charCodes = passwordCriteriaArray; 
         if (passCrData1) charCodes = charCodes.concat(LOWERCASE_CHAR_CODES) 
         if (passCrData2) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES) 
         if (passCrData4) charCodes = charCodes.concat(SPECIAL_CHAR_CODES)
         if (passCrData3) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
         
         const password = []
-        // debugger;
+     
         for (i = 0; i < passLengthData; i++) {
             const characterCode = charCodes[Math.floor(Math.random() * 
                 charCodes.length)]
                 password.push(String.fromCharCode(characterCode))
-                // debugger;
+               
         }
         console.log(password)
         var securePassword = password.join('')
         console.log(securePassword)
         passwordArray.push(securePassword)
         console.log(passwordArray)
-        debugger;
-        // return password.join('')      
+  
+       
       }
       var passwordText = document.querySelector("#password");
       
   
       passwordText.value = passwordArray
-    //   debugger;         
+     
     }
 
 
